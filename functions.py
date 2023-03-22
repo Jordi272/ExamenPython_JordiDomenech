@@ -36,11 +36,11 @@ def split(dicc):
     diccWhite = {}
     diccRed = {}
     contadorWhite = 1
+    contadorRed = 1
     for elemento in dicc.values():
         x = elemento['type']
-        if x == "white":
-             
-             diccWhite["dato"+ str(contadorWhite)]={
+        if x == "white":      
+            diccWhite["dato"+ str(contadorWhite)]={
                     'fixed acidity':elemento['fixed acidity'],
                     'volatile acidity': elemento['volatile acidity'],
                     'citric acid':elemento['citric acid'],
@@ -54,11 +54,37 @@ def split(dicc):
                     'alcohol':elemento['alcohol'],
                     'quality':elemento['quality']
                 }
+            contadorWhite+=1
+        else:
+            diccRed["dato"+ str(contadorRed)]={
+                    'fixed acidity':elemento['fixed acidity'],
+                    'volatile acidity': elemento['volatile acidity'],
+                    'citric acid':elemento['citric acid'],
+                    'residual sugar': elemento['residual sugar'],
+                    'chlorides': elemento['chlorides'],
+                    'free sulfur': elemento['free sulfur'],
+                    'totl sulfur dioxide': elemento['totl sulfur dioxide'],
+                    'density': elemento['density'],
+                    'PH': elemento['PH'],
+                    'sulphates': elemento['sulphates'],
+                    'alcohol':elemento['alcohol'],
+                    'quality':elemento['quality']
+                }
+            contadorRed+=1
+    return(diccWhite, diccRed)
+
+def reduce(dicc, nombreAtriburto):
+    lista = []
+    for diccionario in dicc.values():
+        if nombreAtriburto==diccionario[nombreAtriburto]:
             
-        contadorWhite+=1
+    
 
 
-    print(diccWhite)
+        
+        
+
+
 
 
    
