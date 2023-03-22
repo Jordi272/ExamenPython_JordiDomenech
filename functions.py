@@ -75,9 +75,15 @@ def split(dicc):
 
 def reduce(dicc, nombreAtriburto):
     lista = []
+    if nombreAtri
     for diccionario in dicc.values():
-        if nombreAtriburto==diccionario[nombreAtriburto]:
-            
+            lista.append(diccionario[nombreAtriburto]) 
+        
+        
+    return lista
+
+
+
     
 
 
