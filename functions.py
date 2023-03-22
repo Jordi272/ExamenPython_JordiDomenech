@@ -6,28 +6,59 @@ def read_data(fichero):
     contador =1
     with open(fichero, 'r') as file:
         reader = csv.reader(file)
-        for row in reader:
-            if '' in row:
+        for elemento in reader:
+            if '' in elemento:
                 contador = contador
             else:
                 dicc["dato"+ str(contador)]={
-                    'type' : row[0],
-                    'fixed acidity':row[1],
-                    'volatile acidity': row[2],
-                    'citric acid':row[3],
-                    'residual sugar': row[4],
-                    'chlorides': row[5],
-                    'free sulfur': row[6],
-                    'totl sulfur dioxide': row[7],
-                    'density': row[8],
-                    'PH': row[9],
-                    'sulphates': row[10],
-                    'alcohol':row[11],
-                    'quality':row[12]
+                    'type' : elemento[0],
+                    'fixed acidity':elemento[1],
+                    'volatile acidity': elemento[2],
+                    'citric acid':elemento[3],
+                    'residual sugar': elemento[4],
+                    'chlorides': elemento[5],
+                    'free sulfur': elemento[6],
+                    'totl sulfur dioxide': elemento[7],
+                    'density': elemento[8],
+                    'PH': elemento[9],
+                    'sulphates': elemento[10],
+                    'alcohol':elemento[11],
+                    'quality':elemento[12]
 
                     }
                 contador+=1
+    if len(dicc) > 10:
+        return dicc
+    else:
+        return ValueError("El diccionario tiene menos de 10 muestras")
+    
+def split(dicc):
+    diccWhite = {}
+    diccRed = {}
+    contadorWhite = 1
+    for elemento in dicc.values():
+        x = elemento['type']
+        if x == "white":
+             
+             diccWhite["dato"+ str(contadorWhite)]={
+                    'fixed acidity':elemento['fixed acidity'],
+                    'volatile acidity': elemento['volatile acidity'],
+                    'citric acid':elemento['citric acid'],
+                    'residual sugar': elemento['residual sugar'],
+                    'chlorides': elemento['chlorides'],
+                    'free sulfur': elemento['free sulfur'],
+                    'totl sulfur dioxide': elemento['totl sulfur dioxide'],
+                    'density': elemento['density'],
+                    'PH': elemento['PH'],
+                    'sulphates': elemento['sulphates'],
+                    'alcohol':elemento['alcohol'],
+                    'quality':elemento['quality']
+                }
+            
+        contadorWhite+=1
 
-    print(dicc)
+
+    print(diccWhite)
+
 
    

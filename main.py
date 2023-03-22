@@ -1,5 +1,9 @@
-from functions import read_data
+from functions import read_data, split
 
 fichero = 'winequality.csv'
-read_data(fichero)
+l =read_data(fichero)
+#print(l)
+
+split(l)
+
 
