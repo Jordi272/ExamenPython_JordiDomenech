@@ -75,12 +75,19 @@ def split(dicc):
 
 def reduce(dicc, nombreAtriburto):
     lista = []
-    if nombreAtri
     for diccionario in dicc.values():
-            lista.append(diccionario[nombreAtriburto]) 
-        
-        
+
+        lista.append(diccionario[nombreAtriburto]) 
+
+
     return lista
+
+def silhouette(lista1, lista2):
+    #for lis in range(len(lista1)):
+       # Si = lista2[]
+    return 
+
+
 
 
 
